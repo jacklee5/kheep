@@ -1,28 +1,10 @@
 var getData = function(data, request) {
-    var result = new Object();
     for (var i = 0; i < data.length; i++) {
         if (data[i].authorNickname === request["user"]) {
-            var d = data[i].content.split("___");
-            d.shift();
-            for (var j = 0; j < d.length; j++) {
-                a = d[j].split("::");
-                if (a[0] === request["fileName"]) {
-                    b = a[1].split("__");
-                    b.shift();
-                    for (var k = 0; k < b.length; k++) {
-                        if (k % 2 === 0) {
-                            if (b[k] === "NUM") {
-                                result[(b[k + 1].split(":")[0]).toString()] = parseInt(b[k + 1].split(":")[1]);
-                            } else if (b[k] === "STRING") {
-                                result[(b[k + 1].split(":")[0]).toString()] = b[k + 1].split(":")[1].toString();
-                            }
-                        }
-                    }
-                }
-            }
+            return JSON.parse(data[i].content);
         }
     }
-    return result;
+    return -1;
 }
 var readComments;
 var init = function() {
