@@ -1,7 +1,12 @@
 var getData = function(data, request) {
     for (var i = 0; i < data.length; i++) {
         if (data[i].authorNickname === request["user"]) {
-            return JSON.parse(data[i].content);
+            var d = JSON.parse(data[i].content);
+            for(var j = 0; j < d.length; j++){
+                if(d[j]["--fileName--"]===request["fileName"]){
+                    return d[j]
+                }
+            }
         }
     }
     return -1;
