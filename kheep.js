@@ -58,7 +58,7 @@ var writeData = function(fileName, object) {
     prompt("To save your data: \n 1. Copy the below data.\n 2. Click on the Kheeper bookmarklet.\n 3. Copy the data into the text area. DO NOT CHANGE THE DATA!!! If you do, your account may be banned from Kheep.", JSON.stringify(object))
 }
 //code for the bookmarklet
-var bookmarkletFunction() {
+var bookmarkletFunction = function() {
     if (window.location.href.indexOf("khanacademy.org") < 0) {
         alert("Use on a Khan Academy page");
         return;
