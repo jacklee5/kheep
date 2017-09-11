@@ -82,7 +82,6 @@ var bookmarkletFunction = function() {
                             } else {
                                 var data1 = [];
                             }
-                            var exists = false;
                             for (var j = 0; j < data1.length; j++) {
                                 if (data1[j] !== null) {
                                     if (a1.$$fileName$$ === data1[j].$$fileName$$) {
@@ -91,11 +90,7 @@ var bookmarkletFunction = function() {
                                     }
                                 }
                             }
-                            if (!exists && data1.push !== undefined) {
-                                data1.push(a1);
-                            } else if (!exists) {
-                                data1 = [a1];
-                            }
+                            data1.push(a1);
                             a = data1;
                             if (a === "") return;
                             a = JSON.stringify(a);
